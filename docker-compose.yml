@@ -6,7 +6,7 @@ services:
     environment:
       DB_PATH: /backend/data/db1.db
     volumes:
-      - ./data:/backend/data
+      - data:/backend/data
   frontend:
     build: ./frontend
     ports:
@@ -15,4 +15,4 @@ services:
       - backend
 
 volumes:
-  db_data:
+  data:

@@ -5,5 +5,7 @@ from datetime import datetime
 
 class API(Base):
     __tablename__ = "api"
-    distant=Column(Float)
-    SH=Column(Integer)
+
+    id = Column(Integer, primary_key=True, index=True)
+    distant = Column(Float)
+    SH = Column(Integer)
