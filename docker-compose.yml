@@ -5,13 +5,12 @@ services:
       - "8001:8000"
     environment:
       DB_PATH: /backend/data/db1.db
-      SECRET_KEY: "${SECRET_KEY}"
     volumes:
       - ./data:/backend/data
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8000:80"
     depends_on:
       - backend
 
