@@ -1,3 +1,17 @@
 from .database import engine, Base, context_manager
-from .models import Menu, User, UserRole, Dish, Product, Alergen
-from datetime import date
+from .models import API
+from requests import get
+from json import *
+
+url='http://couldntcareless.ru/ppo_it_final'
+response = get(url)
+if response.status_code == 200:
+    data=response.json()
+else:
+    print(f"Ошибка: { response.status_code}")    
+
+with context_manager() as db:
+    for i in range(len(data)):
+        new_api=API(distant=data[i][0], SH=data[i][1])
+        db.add(new_api)
+print(data)
