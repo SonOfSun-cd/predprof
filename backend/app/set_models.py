@@ -14,4 +14,3 @@ with context_manager() as db:
     for i in range(len(data)):
         new_api=API(distant=data[i][0], SH=data[i][1])
         db.add(new_api)
-print(data)
